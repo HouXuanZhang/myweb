@@ -8,8 +8,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "No message provided" });
     }
   
-    const apiKey = process.env.GOOGLE_API_KEY; // 从环境变量获取 API 密钥
-    const apiUrl = `https://api.example.com/chatbot?api_key=${apiKey}`;
+    const apiKey = process.env.GOOGLE_API_KEY; // 从 Vercel 环境变量获取 API 密钥
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta2/models/gemini-pro:generateText?key=${apiKey}`;
   
     try {
       const response = await fetch(apiUrl, {
@@ -17,12 +17,16 @@ export default async function handler(req, res) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query: message }),
+        body: JSON.stringify({
+          prompt: { text: message },
+          maxTokens: 100,
+        }),
       });
   
       const data = await response.json();
-      return res.status(200).json({ reply: data.response });
+      return res.status(200).json({ reply: data.candidates[0]?.output || "No response from API" });
     } catch (error) {
+      console.error("API Error:", error);
       return res.status(500).json({ error: "Failed to fetch response" });
     }
   }
