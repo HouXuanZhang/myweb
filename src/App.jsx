@@ -19,10 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/movies" element={<Movies />} />
+          {/* <Route path="/movies" element={<Movies />} /> */}
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/llminfo" element={<LLMInfo />} />
+          <Route path="/contact" element={<Contact />} />
+
         </Routes>
         <AIBot />
         <Footer />
