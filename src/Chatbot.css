@@ -1,0 +1,18 @@
+/* 错误消息样式 */
+.error-message {
+    color: #ff4d4f;
+    background-color: #fff1f0;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ffa39e;
+  }
+  
+  /* 发送按钮禁用状态样式 */
+  .input-area button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
