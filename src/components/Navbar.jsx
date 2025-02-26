@@ -10,7 +10,7 @@ function Navbar() {
       <Link to="/movies">Movies</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/llminfo">LLM Info</Link>
+      <Link to="/llminfo">Project</Link>
     </nav>
   );
 }
